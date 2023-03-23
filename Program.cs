@@ -10,6 +10,7 @@ namespace Shortcuts
 {
     public class Product
     {
+        public string Id { get; set; }
         public string Brand { get; set; }
         public string ProductName { get; set; }
         public double Price { get; set; }
@@ -31,22 +32,45 @@ namespace Shortcuts
 
     }
 
+    static class DataHolder
+    {
+        private static List<Mobile> mobiles = new List<Mobile>();
+        private static void Add(Mobile mobile)
+        {
+            mobiles.Add(mobile);
+        }
+        public static IEnumerable<Mobile> GetMobiles() { return mobiles.AsEnumerable(); }
+    }
+
     public class Program
     {
 
+        static Dictionary<string, Product> productsDictionary = new Dictionary<string, Product>();
+
+        static Product Search(Product p)
+        {
+
+
+
+            return null;
+        }
 
 
 
         static void Main(string[] args)
         {
-            List<Product> products = GetProductsFromUser();
 
-            List<Mobile> mobiles = ConvertProductListToMobile(products);
+            Navigator.Navigate("Main");
 
-            DisplayMobileList(mobiles);
 
             Console.ReadLine();
 
+        }
+
+
+        static void KuchKar(IFather father)
+        {
+            father.EntertainChild();
         }
 
         private static void DisplayMobileList(List<Mobile> mobiles)
@@ -96,4 +120,7 @@ namespace Shortcuts
 
 
     }
+
+
+
 }
